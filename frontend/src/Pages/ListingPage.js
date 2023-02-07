@@ -16,7 +16,7 @@ const ListingPage = () => {
 
     const getListing = async () => {
       try {
-        const res = await fetch(`/home/${id}`);
+        const res = await fetch(`https://air-bnb-clone-backend.herokuapp.com/home/${id}`);
         const fetchedListing = await res.json();
         setListing(fetchedListing);
       } catch (error) {

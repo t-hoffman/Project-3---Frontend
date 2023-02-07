@@ -72,7 +72,7 @@ const ListingForm = ({ type }) => {
       const method = type === 'add' ? 'POST' : 'PUT',
             options = { method: method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) };
 
-      const listing = await fetch(`/home/${id}`, options);
+      const listing = await fetch(`https://air-bnb-clone-backend.herokuapp.com/home/${id}`, options);
 
       navigate('/manage/');
     } catch (error) {

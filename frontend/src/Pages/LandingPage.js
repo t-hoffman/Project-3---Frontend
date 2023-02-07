@@ -1,10 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Modal, Button } from 'react-bootstrap'
 import Cards from 'Components/Cards'
 
 
 const LandingPage = (props) => {
+
+  const [showModal, setShowModal] = useState(true)
+
   return (
+    
     <>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Welcome to our App</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+Hello and thank you for visiting! Our app is packed with great features, but just a quick heads up: <br/><br/>- Our search feature is only available for cities like New York, Miami, Palm Springs, and Chicago. <br/><br/>
+-Keep an eye out for even more exciting updates, like checkout processing, host and customer login information and dashboards. Start exploring now!"
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <div className="abnb-icons">
         <img src="https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg" />
         <img src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg" />

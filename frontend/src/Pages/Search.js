@@ -60,14 +60,14 @@ const Search = (props) => {
         navigate = useNavigate();
 
   const countTotal = async () => {
-    const check = await fetch(`/home/location/${query}`),
+    const check = await fetch(`https://air-bnb-clone-backend.herokuapp.com/home/location/${query}`),
           checkJson = await check.json();
 
     setTotal(checkJson.length);
   }
 
   const fetchData = async () => {
-    const resp = await fetch(`/home/location/${query}?limit=${pageLimit}&page=${pageNum}`);
+    const resp = await fetch(`https://air-bnb-clone-backend.herokuapp.com/home/location/${query}?limit=${pageLimit}&page=${pageNum}`);
     const json = await resp.json();
     setData(json);
   }
@@ -86,7 +86,7 @@ const Search = (props) => {
     const pageList = pageArr.map((i,idx) => (
       <span key={idx}>
         {
-          pageNum == idx+1 ? idx+1 : <a onClick={() => {navigate(`/search/${query}/${idx+1}`); window.scrollTo({top: 100, bottom: 0, behavior: 'smooth'})}} style={{cursor:'pointer'}}>{idx+1}</a>
+          pageNum == idx+1 ? idx+1 : <a onClick={() => {navigate(`https://air-bnb-clone-backend.herokuapp.com/search/${query}/${idx+1}`); window.scrollTo({top: 100, bottom: 0, behavior: 'smooth'})}} style={{cursor:'pointer'}}>{idx+1}</a>
         }
         {
           idx !== pageArr.length-1 && <>&nbsp; | &nbsp;</>
